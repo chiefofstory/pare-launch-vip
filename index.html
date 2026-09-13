@@ -24,8 +24,7 @@
   --measure:640px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{color-scheme:light}
-html{background:var(--blue-deep)}
+html{color-scheme:light;background:var(--blue-deep)}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 main{flex:1}
 p{max-width:var(--measure)}
@@ -36,35 +35,37 @@ b,strong{font-weight:600;color:var(--blue-deep)}
 .demo b{color:#fff;font-weight:500}
 
 .wrap{width:min(100% - 2.5rem, 720px);margin:0 auto}
-main{padding:2.2rem 0 2.8rem}
+main{padding:2.2rem 0 2.6rem}
 
 .kicker{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:.6rem}
 h1{font-family:var(--display);font-weight:500;line-height:1;letter-spacing:-.02em;color:var(--blue-deep);font-size:clamp(2.6rem,6vw,3.6rem)}
+.lead{margin-top:.7rem;font-size:1.1rem;color:var(--ink-soft)}
+.lead + p{margin-top:.7rem}
 
-section{margin-top:1.6rem;padding-top:1.3rem;border-top:1px solid var(--rule)}
-h2{font-family:var(--display);font-weight:500;line-height:1.15;letter-spacing:-.01em;color:var(--blue-deep);font-size:clamp(1.45rem,2.8vw,1.75rem);margin-bottom:.6rem}
-section p + p{margin-top:.55rem}
-h3{font-family:var(--display);font-weight:500;font-style:italic;font-size:1.2rem;line-height:1.25;color:var(--blue-deep);margin:1.1rem 0 .35rem}
+section{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--rule)}
+h2{font-family:var(--display);font-weight:500;line-height:1.15;letter-spacing:-.01em;color:var(--blue-deep);font-size:clamp(1.4rem,2.8vw,1.7rem);margin-bottom:.55rem}
+section p + p{margin-top:.5rem}
 .sub{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);margin:.9rem 0 .15rem 1.4rem}
 
 .prizes{list-style:none;margin:0 0 0 1.4rem;max-width:calc(var(--measure) - 1.4rem)}
-.prizes li{position:relative;padding:.42rem 0 .42rem 1.2rem;border-top:1px solid var(--rule-soft)}
+.prizes li{position:relative;padding:.4rem 0 .4rem 1.2rem;border-top:1px solid var(--rule-soft)}
 .prizes li:last-child{border-bottom:1px solid var(--rule-soft)}
-.prizes li::before{content:"";position:absolute;left:0;top:.98rem;width:.45rem;height:.45rem;background:var(--copper)}
+.prizes li::before{content:"";position:absolute;left:0;top:.96rem;width:.45rem;height:.45rem;background:var(--copper)}
 
-.cal{background:var(--panel);border:1px solid var(--rule);padding:1.2rem 1.4rem 1.1rem;margin-left:-1.4rem;margin-right:-1.4rem}
-.buttons{display:flex;flex-wrap:wrap;gap:.7rem .9rem;margin:.9rem 0 .6rem;align-items:flex-start}
+.cal{background:var(--panel);border:1px solid var(--rule);padding:1.2rem 1.4rem 1.05rem;margin-left:-1.4rem;margin-right:-1.4rem}
+.cal .two{display:grid;gap:.15rem}
+.buttons{display:flex;flex-wrap:wrap;gap:.7rem .9rem;margin:.9rem 0 .55rem;align-items:flex-start}
 .buttons add-to-calendar-button{display:inline-block}
-.cap{font-family:var(--mono);font-size:.8rem;color:var(--ink-faint);letter-spacing:.01em}
+.cap{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);letter-spacing:.01em}
 
-.close{margin-top:1.7rem}
-.close .date{display:block;font-family:var(--display);font-size:1.5rem;color:var(--blue-deep);margin-bottom:.25rem}
-.sig{margin-top:.9rem;font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--blue-deep)}
+.close{margin-top:1.6rem}
+.close .date{display:block;font-family:var(--display);font-size:1.45rem;color:var(--blue-deep);margin-bottom:.2rem}
+.sig{margin-top:.8rem;font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--blue-deep)}
 
 footer{background:var(--blue-deep);color:#a9b6c9;padding:1.2rem 0;font-size:.8rem;font-family:var(--mono)}
 
 @media (max-width:640px){
-  main{padding:1.8rem 0 2.2rem}
+  main{padding:1.8rem 0 2.1rem}
   .cal{margin-left:-1.25rem;margin-right:-1.25rem;padding:1.1rem 1.25rem 1rem;border-left:0;border-right:0}
   .buttons{flex-direction:column;align-items:stretch}
   .sub,.prizes{margin-left:.6rem}
@@ -74,39 +75,40 @@ footer{background:var(--blue-deep);color:#a9b6c9;padding:1.2rem 0;font-size:.8re
 <body>
 
 <div class="demo"><b>Demo</b> · working example for the Ontraport build · the words are Rebekah's Emails Doc, block P-VIP</div>
-<script>/* the demo ribbon shows only on the hub host; on vip.pareconsulting.com (or any other host) the page is the real thing */
+<script>/* the demo ribbon shows only on the hub host; anywhere else the page is the real thing */
 if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.currentScript.previousElementSibling.hidden=true}</script>
 
 <main>
   <div class="wrap">
     <p class="kicker">The Career Design Blueprint™ Scorecard</p>
-    <h1>You're in.</h1>
+    <h1>You're in! 🎉</h1>
+    <p class="lead">You're officially on the Launch VIP list for The Career Design Blueprint™ Scorecard.</p>
+    <p>The Scorecard link will arrive in your inbox on the morning of Monday, September 21—and as a Launch VIP, you'll be first to see what early participants are discovering, the questions coming up most often, and how schools are using it with their teams.</p>
 
     <section>
-      <h2>Here's what Launch VIP means</h2>
-      <p>The link, in your inbox the morning doors open. Monday, September 21.</p>
-      <p>Everything I share during the launch: what early participants are finding, the questions people ask most, and how to do it with your team.</p>
+      <h2>Complete the Scorecard. Unlock the extras.</h2>
+      <p>Complete the Scorecard between September 21 and October 2—it takes about 25 minutes—and you'll be entered to win one of two giveaways plus receive three launch bonuses.</p>
 
-      <h3>Here's how you enter…</h3>
-      <p>Complete the Scorecard between September 21 and October 2 (only takes 25 minutes). You'll be entered to win 2 giveaways, plus you'll get three launch bonuses.</p>
-
-      <p class="sub">Giveaways for ten schools</p>
+      <p class="sub">Giveaways for 10 schools</p>
       <ul class="prizes">
-        <li>A <b>FREE team Blueprint Workshop Series</b> ($1,595 each).</li>
-        <li>A <b>FREE Blueprint Strategy Session</b> ($325 each).</li>
+        <li>A free <b>Team Blueprint Workshop Series</b> — valued at $1,595</li>
+        <li>A free <b>Blueprint Strategy Session</b> — valued at $325</li>
       </ul>
 
-      <p class="sub">3 Bonuses for everyone who participates</p>
+      <p class="sub">Three bonuses for every participant</p>
       <ul class="prizes">
-        <li>Early look at the upcoming <b>peer benchmarking feature</b>.</li>
-        <li><b>Premium upgrade</b> when it launches in 2027.</li>
-        <li>A <b>Team Facilitator Guide</b> to help you use the Scorecard with your team and leadership.</li>
+        <li>An early look at the upcoming <b>peer-benchmarking feature</b></li>
+        <li>A <b>premium upgrade</b> when it launches in 2027</li>
+        <li>The <b>Team Facilitator Guide</b> to help you use the Scorecard with your team and leadership</li>
       </ul>
     </section>
 
     <section class="cal">
-      <h2>Put it on your calendar now</h2>
-      <p>On your own, the Scorecard takes about 25 minutes. With your team, plan on an hour. Pick a time the week of September 21, before that week fills up.</p>
+      <h2>Don't miss it: Put it on your calendar now</h2>
+      <div class="two">
+        <p>Taking it on your own? Set aside 25 minutes.</p>
+        <p>Bringing in your team? Reserve 60 minutes.</p>
+      </div>
       <div class="buttons">
         <add-to-calendar-button
           name="Blueprint Scorecard (25 minutes)"
@@ -116,7 +118,7 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
           endTime="10:25"
           timeZone="currentBrowser"
           options="['Apple','Google','Microsoft365','Outlook.com','iCal']"
-          label="Add 25 minutes to my calendar"
+          label="Set aside 25 minutes"
           lightMode="light"
           hideBackground
           hideCheckmark
@@ -130,22 +132,22 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
           endTime="11:00"
           timeZone="currentBrowser"
           options="['Apple','Google','Microsoft365','Outlook.com','iCal']"
-          label="Add 60 minutes for my team"
+          label="Reserve 60 minutes for my team"
           lightMode="light"
           hideBackground
           hideCheckmark
           styleLight="--btn-background:#1f3a5f;--btn-background-hover:#2c5faa;--btn-text:#ffffff;--btn-text-hover:#ffffff;--btn-border:#1f3a5f;--btn-border-hover:#2c5faa;--btn-border-radius:0;--btn-shadow:none;--btn-shadow-hover:none;--btn-shadow-active:none;--font:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--list-border-radius:0;"
         ></add-to-calendar-button>
       </div>
-      <p class="cap">It opens at 10 AM Tuesday in your calendar. Move it to whatever hour you'll actually protect.</p>
+      <p class="cap">It opens in your calendar at 10 AM Tuesday the 22nd. Move it to any time you'll protect.</p>
     </section>
 
     <!-- Held until the morning of Mon Sept 21 (build Doc §2). Hasani sends the merge-field link that morning.
     <p>Already past the 21st? Doors are open. <a href="https://blueprint.pareconsulting.com/assess">Start the Scorecard →</a></p>
     -->
 
-    <p class="close"><span class="date">September 21.</span>The link comes by email that morning. Nothing else to do until then. I can't wait to put this in your hands.🎉</p>
-    <p class="sig">Rebekah</p>
+    <p class="close"><span class="date">September 21: watch your inbox.</span>I can't wait to share it with you.</p>
+    <p class="sig">—Rebekah</p>
   </div>
 </main>
 
