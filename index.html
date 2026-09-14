@@ -45,6 +45,8 @@ main{padding:2.2rem 0 2.6rem}
 .kicker{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:.6rem}
 h1{font-family:var(--display);font-weight:500;line-height:1;letter-spacing:-.02em;color:var(--blue-deep);font-size:clamp(2.6rem,6vw,3.6rem)}
 .intro{margin-top:1.25rem;font-size:1.05rem}
+.nudge{margin-top:.55rem;font-size:1.05rem;font-style:italic;color:var(--blue-deep)}
+.br{display:inline}
 
 section{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);max-width:var(--measure)}
 h2{font-family:var(--display);font-weight:500;line-height:1.15;letter-spacing:-.01em;color:var(--blue-deep);font-size:clamp(1.4rem,2.8vw,1.7rem);margin-bottom:.55rem}
@@ -72,8 +74,13 @@ footer{background:var(--blue-deep);color:#a9b6c9;padding:1.2rem 0;font-size:.8re
   .top{display:block;text-align:center}
   .top .logo{width:130px;margin:0 auto 1.1rem}
   .top .text{text-align:center}
-  .cal{margin-left:-1.25rem;margin-right:-1.25rem;padding:1.1rem 1.25rem 1.1rem;border-left:0;border-right:0;max-width:none}
-  .slots{grid-template-columns:1fr;gap:.9rem}
+  .unlock h2{text-align:center}
+  .br{display:block}
+  .cal{margin-left:-1.25rem;margin-right:-1.25rem;padding:1.1rem 1.25rem 1.2rem;border-left:0;border-right:0;max-width:none;text-align:center}
+  .slots{grid-template-columns:1fr;gap:1rem;margin-top:.9rem}
+  .slot{background:var(--blue-wash);border:1px solid var(--rule);padding:.95rem .9rem 1.05rem}
+  .slot p{margin-bottom:.6rem}
+  .slot add-to-calendar-button{display:inline-block}
   .prizes{margin-left:.9rem}
 }
 </style>
@@ -93,10 +100,11 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
         <h1>You're in! 🎉</h1>
       </div>
     </header>
-    <p class="intro">The Scorecard link will arrive in your inbox the morning of Monday, September 21. Don't miss it: scroll down to put it on your calendar.</p>
+    <p class="intro">The Scorecard link will arrive in your inbox the morning of Monday, September 21.</p>
+    <p class="nudge">Don't miss it: scroll down to put it on your calendar.</p>
 
-    <section>
-      <h2>Here's how to unlock the bonuses and extras</h2>
+    <section class="unlock">
+      <h2>Here's how to unlock the <span class="br">bonuses and extras</span></h2>
       <p>Complete your Scorecard between September 21 and October 2. It takes about 25 minutes, and you'll be entered to win the giveaways and get the bonuses.</p>
 
       <p class="sub">Giveaways for 10 schools</p>
