@@ -37,6 +37,7 @@ b,strong{font-weight:600;color:var(--blue-deep)}
 .wrap{width:min(100% - 2.5rem, 720px);margin:0 auto}
 main{padding:2.2rem 0 2.6rem}
 
+.logo{display:block;width:150px;height:auto;margin:0 0 1.4rem}
 .kicker{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:.6rem}
 h1{font-family:var(--display);font-weight:500;line-height:1;letter-spacing:-.02em;color:var(--blue-deep);font-size:clamp(2.6rem,6vw,3.6rem)}
 .lead{margin-top:.7rem;font-size:1.1rem;color:var(--ink-soft)}
@@ -66,6 +67,7 @@ footer{background:var(--blue-deep);color:#a9b6c9;padding:1.2rem 0;font-size:.8re
 
 @media (max-width:640px){
   main{padding:1.8rem 0 2.1rem}
+  .logo{width:130px;margin-bottom:1.1rem}
   .cal{margin-left:-1.25rem;margin-right:-1.25rem;padding:1.1rem 1.25rem 1rem;border-left:0;border-right:0}
   .buttons{flex-direction:column;align-items:stretch}
   .prizes{margin-left:.9rem}
@@ -80,6 +82,7 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
 
 <main>
   <div class="wrap">
+    <img class="logo" src="pare-logo.svg" alt="Paré Consulting" width="150" height="75">
     <p class="kicker">The Career Design Blueprint™ Scorecard</p>
     <h1>You're in! 🎉</h1>
     <p class="lead">You're officially on the Launch VIP list for The Career Design Blueprint™ Scorecard.</p>
