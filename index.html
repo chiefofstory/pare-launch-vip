@@ -38,14 +38,13 @@ b,strong{font-weight:600;color:var(--blue-deep)}
 main{padding:2.2rem 0 2.6rem}
 
 /* header row: kicker + headline left, logo right, inside the same 640px column as everything else;
-   on a phone the logo comes first (it is first in the markup) */
+   on a phone the logo comes first (it is first in the markup) and the row is centered */
 .top{display:grid;grid-template-columns:minmax(0,1fr) 145px;column-gap:1.5rem;align-items:start;max-width:var(--measure)}
 .top .logo{grid-column:2;grid-row:1;justify-self:end;display:block;width:145px;height:auto;margin:.15rem 0 0}
 .top .text{grid-column:1;grid-row:1;min-width:0}
 .kicker{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:.6rem}
 h1{font-family:var(--display);font-weight:500;line-height:1;letter-spacing:-.02em;color:var(--blue-deep);font-size:clamp(2.6rem,6vw,3.6rem)}
-.lead{margin-top:1.25rem;font-size:1.1rem;color:var(--ink-soft)}
-.lead + p{margin-top:.7rem}
+.intro{margin-top:1.25rem;font-size:1.05rem}
 
 section{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);max-width:var(--measure)}
 h2{font-family:var(--display);font-weight:500;line-height:1.15;letter-spacing:-.01em;color:var(--blue-deep);font-size:clamp(1.4rem,2.8vw,1.7rem);margin-bottom:.55rem}
@@ -57,11 +56,10 @@ section p + p{margin-top:.5rem}
 .prizes li:last-child{border-bottom:1px solid var(--rule-soft)}
 .prizes li::before{content:"";position:absolute;left:0;top:.96rem;width:.45rem;height:.45rem;background:var(--copper)}
 
-.cal{background:var(--panel);border:1px solid var(--rule);padding:1.2rem 1.4rem 1.05rem;margin-left:-1.4rem;margin-right:-1.4rem;max-width:calc(var(--measure) + 2.8rem)}
-.cal .two{display:grid;gap:.15rem}
-.buttons{display:flex;flex-wrap:wrap;gap:.7rem .9rem;margin:.9rem 0 .55rem;align-items:flex-start}
-.buttons add-to-calendar-button{display:inline-block}
-.cap{font-family:var(--mono);font-size:.78rem;color:var(--ink-faint);letter-spacing:.01em}
+.cal{background:var(--panel);border:1px solid var(--rule);padding:1.2rem 1.4rem 1.2rem;margin-left:-1.4rem;margin-right:-1.4rem;max-width:calc(var(--measure) + 2.8rem)}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem;margin-top:.8rem}
+.slot p{font-weight:500;color:var(--blue-deep);margin:0 0 .55rem}
+.slot add-to-calendar-button{display:block}
 
 .close{margin-top:1.6rem}
 .close .date{display:block;font-family:var(--display);font-size:1.45rem;color:var(--blue-deep);margin-bottom:.2rem}
@@ -71,11 +69,11 @@ footer{background:var(--blue-deep);color:#a9b6c9;padding:1.2rem 0;font-size:.8re
 
 @media (max-width:640px){
   main{padding:1.8rem 0 2.1rem}
-  .top{display:block}
-  .top .logo{width:130px;margin:0 0 1.1rem}
-  .cal{max-width:none}
-  .cal{margin-left:-1.25rem;margin-right:-1.25rem;padding:1.1rem 1.25rem 1rem;border-left:0;border-right:0}
-  .buttons{flex-direction:column;align-items:stretch}
+  .top{display:block;text-align:center}
+  .top .logo{width:130px;margin:0 auto 1.1rem}
+  .top .text{text-align:center}
+  .cal{margin-left:-1.25rem;margin-right:-1.25rem;padding:1.1rem 1.25rem 1.1rem;border-left:0;border-right:0;max-width:none}
+  .slots{grid-template-columns:1fr;gap:.9rem}
   .prizes{margin-left:.9rem}
 }
 </style>
@@ -95,12 +93,11 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
         <h1>You're in! 🎉</h1>
       </div>
     </header>
-    <p class="lead">You're officially on the Launch VIP list for The Career Design Blueprint™ Scorecard.</p>
-    <p>The Scorecard link will arrive in your inbox on the morning of Monday, September 21—and as a Launch VIP, you'll be first to see what early participants are discovering, the questions coming up most often, and how schools are using it with their teams.</p>
+    <p class="intro">The Scorecard link will arrive in your inbox the morning of Monday, September 21. Don't miss it: scroll down to put it on your calendar.</p>
 
     <section>
-      <h2>Complete the Scorecard. Unlock the extras.</h2>
-      <p>Complete the Scorecard between September 21 and October 2—it takes about 25 minutes—and you'll be entered to win one of two giveaways plus receive three launch bonuses.</p>
+      <h2>Here's how to unlock the bonuses and extras</h2>
+      <p>Complete your Scorecard between September 21 and October 2. It takes about 25 minutes, and you'll be entered to win the giveaways and get the bonuses.</p>
 
       <p class="sub">Giveaways for 10 schools</p>
       <ul class="prizes">
@@ -117,42 +114,43 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
     </section>
 
     <section class="cal">
-      <h2>Don't miss it: Put it on your calendar now</h2>
-      <div class="two">
-        <p>Taking it on your own? Set aside 25 minutes.</p>
-        <p>Bringing in your team? Reserve 60 minutes.</p>
+      <h2>Put it on your calendar</h2>
+      <div class="slots">
+        <div class="slot">
+          <p>Taking it on your own?</p>
+          <add-to-calendar-button
+            name="Blueprint Scorecard (25 minutes)"
+            description="Complete The Career Design Blueprint™ Scorecard. The link is in Rebekah's email the morning of Monday, September 21. No prep, instant results."
+            startDate="2026-09-22"
+            startTime="10:00"
+            endTime="10:25"
+            timeZone="currentBrowser"
+            options="['Apple','Google','Microsoft365','Outlook.com','iCal']"
+            label="Set aside 25 minutes"
+            lightMode="light"
+            hideBackground
+            hideCheckmark
+            styleLight="--btn-background:#1f3a5f;--btn-background-hover:#2c5faa;--btn-text:#ffffff;--btn-text-hover:#ffffff;--btn-border:#1f3a5f;--btn-border-hover:#2c5faa;--btn-border-radius:0;--btn-shadow:none;--btn-shadow-hover:none;--btn-shadow-active:none;--font:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--list-border-radius:0;"
+          ></add-to-calendar-button>
+        </div>
+        <div class="slot">
+          <p>Doing it with your team?</p>
+          <add-to-calendar-button
+            name="Blueprint Scorecard with your team (60 minutes)"
+            description="Complete the Scorecard with your team. The link is in Rebekah's email the morning of Monday, September 21. Plan on an hour."
+            startDate="2026-09-22"
+            startTime="10:00"
+            endTime="11:00"
+            timeZone="currentBrowser"
+            options="['Apple','Google','Microsoft365','Outlook.com','iCal']"
+            label="Reserve 60 minutes"
+            lightMode="light"
+            hideBackground
+            hideCheckmark
+            styleLight="--btn-background:#1f3a5f;--btn-background-hover:#2c5faa;--btn-text:#ffffff;--btn-text-hover:#ffffff;--btn-border:#1f3a5f;--btn-border-hover:#2c5faa;--btn-border-radius:0;--btn-shadow:none;--btn-shadow-hover:none;--btn-shadow-active:none;--font:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--list-border-radius:0;"
+          ></add-to-calendar-button>
+        </div>
       </div>
-      <div class="buttons">
-        <add-to-calendar-button
-          name="Blueprint Scorecard (25 minutes)"
-          description="Complete The Career Design Blueprint™ Scorecard. The link is in Rebekah's email the morning of Monday, September 21. No prep, instant results."
-          startDate="2026-09-22"
-          startTime="10:00"
-          endTime="10:25"
-          timeZone="currentBrowser"
-          options="['Apple','Google','Microsoft365','Outlook.com','iCal']"
-          label="Set aside 25 minutes"
-          lightMode="light"
-          hideBackground
-          hideCheckmark
-          styleLight="--btn-background:#1f3a5f;--btn-background-hover:#2c5faa;--btn-text:#ffffff;--btn-text-hover:#ffffff;--btn-border:#1f3a5f;--btn-border-hover:#2c5faa;--btn-border-radius:0;--btn-shadow:none;--btn-shadow-hover:none;--btn-shadow-active:none;--font:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--list-border-radius:0;"
-        ></add-to-calendar-button>
-        <add-to-calendar-button
-          name="Blueprint Scorecard with your team (60 minutes)"
-          description="Complete the Scorecard with your team. The link is in Rebekah's email the morning of Monday, September 21. Plan on an hour."
-          startDate="2026-09-22"
-          startTime="10:00"
-          endTime="11:00"
-          timeZone="currentBrowser"
-          options="['Apple','Google','Microsoft365','Outlook.com','iCal']"
-          label="Reserve 60 minutes for my team"
-          lightMode="light"
-          hideBackground
-          hideCheckmark
-          styleLight="--btn-background:#1f3a5f;--btn-background-hover:#2c5faa;--btn-text:#ffffff;--btn-text-hover:#ffffff;--btn-border:#1f3a5f;--btn-border-hover:#2c5faa;--btn-border-radius:0;--btn-shadow:none;--btn-shadow-hover:none;--btn-shadow-active:none;--font:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--list-border-radius:0;"
-        ></add-to-calendar-button>
-      </div>
-      <p class="cap">It opens in your calendar at 10 AM Tuesday the 22nd. Move it to any time you'll protect.</p>
     </section>
 
     <!-- Held until the morning of Mon Sept 21 (build Doc §2). Hasani sends the merge-field link that morning.
