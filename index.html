@@ -34,16 +34,17 @@ b,strong{font-weight:600;color:var(--blue-deep)}
 .demo{background:var(--blue-deep);color:#d3dbe8;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-align:center;padding:.45rem 1rem}
 .demo b{color:#fff;font-weight:500}
 
-.wrap{width:min(100% - 2.5rem, 880px);margin:0 auto}
+.wrap{width:min(100% - 2.5rem, 700px);margin:0 auto}
 main{padding:2.2rem 0 2.6rem}
 
-/* header: text left, logo right on wide screens; logo first on a phone (it is first in the markup) */
-.top{display:grid;grid-template-columns:minmax(0,1fr) 180px;column-gap:3rem;align-items:start}
-.top .logo{grid-column:2;grid-row:1;justify-self:end;display:block;width:180px;height:auto;margin:.3rem 0 0}
+/* header row: kicker + headline left, logo right, inside the same 640px column as everything else;
+   on a phone the logo comes first (it is first in the markup) */
+.top{display:grid;grid-template-columns:minmax(0,1fr) 145px;column-gap:1.5rem;align-items:start;max-width:var(--measure)}
+.top .logo{grid-column:2;grid-row:1;justify-self:end;display:block;width:145px;height:auto;margin:.15rem 0 0}
 .top .text{grid-column:1;grid-row:1;min-width:0}
 .kicker{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--copper);margin-bottom:.6rem}
 h1{font-family:var(--display);font-weight:500;line-height:1;letter-spacing:-.02em;color:var(--blue-deep);font-size:clamp(2.6rem,6vw,3.6rem)}
-.lead{margin-top:.7rem;font-size:1.1rem;color:var(--ink-soft)}
+.lead{margin-top:1.25rem;font-size:1.1rem;color:var(--ink-soft)}
 .lead + p{margin-top:.7rem}
 
 section{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--rule);max-width:var(--measure)}
@@ -88,14 +89,14 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
 <main>
   <div class="wrap">
     <header class="top">
-      <img class="logo" src="pare-logo.svg" alt="Paré Consulting" width="180" height="90">
+      <img class="logo" src="pare-logo.svg" alt="Paré Consulting" width="145" height="72">
       <div class="text">
         <p class="kicker">The Career Design Blueprint™ Scorecard</p>
         <h1>You're in! 🎉</h1>
-        <p class="lead">You're officially on the Launch VIP list for The Career Design Blueprint™ Scorecard.</p>
-        <p>The Scorecard link will arrive in your inbox on the morning of Monday, September 21—and as a Launch VIP, you'll be first to see what early participants are discovering, the questions coming up most often, and how schools are using it with their teams.</p>
       </div>
     </header>
+    <p class="lead">You're officially on the Launch VIP list for The Career Design Blueprint™ Scorecard.</p>
+    <p>The Scorecard link will arrive in your inbox on the morning of Monday, September 21—and as a Launch VIP, you'll be first to see what early participants are discovering, the questions coming up most often, and how schools are using it with their teams.</p>
 
     <section>
       <h2>Complete the Scorecard. Unlock the extras.</h2>
