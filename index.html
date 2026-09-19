@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>You're in · The Career Design Blueprint™ Scorecard</title>
+<!-- Her mark. Absolute, because this file is served from two hosts (the hub and the
+     GitHub Pages mirror at viplaunch) and neither should carry its own copy. -->
+<link rel="icon" href="https://blueprint.pareconsulting.com/favicon.ico" sizes="any">
+<link rel="icon" href="https://blueprint.pareconsulting.com/icon.png" type="image/png">
+<link rel="apple-touch-icon" href="https://blueprint.pareconsulting.com/apple-icon.png">
+
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,7 +125,7 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
       <ul class="prizes">
         <li>An early look at the upcoming <b>peer-benchmarking feature</b></li>
         <li>A <b>premium upgrade</b> when it launches in 2027</li>
-        <li>The <b>Team Facilitator Guide</b> to help you use the Scorecard with your team and leadership</li>
+        <li>The <b>Group Assessment Guide</b> &mdash; a one-hour plan for taking the Scorecard with your group. <a href="https://blueprint.pareconsulting.com/guides/group-assessment-guide.pdf" target="_blank" rel="noopener">Download it now</a></li>
       </ul>
     </section>
 
@@ -144,10 +150,10 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
           ></add-to-calendar-button>
         </div>
         <div class="slot">
-          <p>Doing it with your team?</p>
+          <p>Doing it with a group?</p>
           <add-to-calendar-button
-            name="Blueprint Scorecard with your team (60 minutes)"
-            description="Complete the Scorecard with your team. The link is in Rebekah's email the morning of Monday, September 21. Plan on an hour."
+            name="Blueprint Scorecard with your group (60 minutes)"
+            description="Complete the Scorecard with your group. The link is in Rebekah's email the morning of Monday, September 21. Plan on an hour."
             startDate="2026-09-22"
             startTime="10:00"
             endTime="11:00"
@@ -164,6 +170,9 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
     </section>
 
     <!-- Held until the morning of Mon Sept 21 (build Doc §2). Hasani sends the merge-field link that morning.
+         WHEN YOU UNCOMMENT THIS: leave the href bare, exactly as written. The identity mirror at the
+         foot of this page rewrites it at load with whatever id the visitor arrived carrying. Hand-
+         editing an id into the href would pin every visitor on this page to one person's record.
     <p>Already past the 21st? Doors are open. <a href="https://blueprint.pareconsulting.com/assess">Start the Scorecard →</a></p>
     -->
 
@@ -173,6 +182,36 @@ if(!/chiefsofstory\.com$|^localhost$|^$/.test(location.hostname)){document.curre
 </main>
 
 <footer><div class="wrap"><a href="https://page.csa.pareconsulting.com/service-agreement">Terms of Service</a> · <a href="https://page.csa.pareconsulting.com/privacy">Privacy Policy</a><br>© 2026 Rebekah Paré Consulting Solutions, Inc.</div></footer>
+
+<script>/* Identity mirror (2026-09-17 evening). His rule: every button on a live page carries the uid.
+   A VIP who arrives from a coded link hands that id straight back to the Scorecard, so s03 fires
+   for them the same as for anyone off her list. A VIP who arrives without one gets a bare link —
+   there is nothing to mirror, and that is the design, not a failure.
+
+   The parsing is the same three rules the Scorecard page and the server use
+   (demos/scorecard/index.html __patchAssessLinks · lib/crm/identity-hints.ts). Kept deliberately
+   identical: a fourth copy that drifts is worse than a third that does not.
+
+   The selector matches the href PREFIX, so it patches the Sept 21 link whether it ships absolute
+   or root-relative, and it is idempotent — a patched href no longer matches the bare prefix test. */
+(function () {
+  var UID_RE = /^[A-Za-z0-9]{4,16}$/;
+  var OPRID_RE = /^[1-9]\d{0,11}$/;
+  var params = new URLSearchParams(location.search);
+  var uid = params.get('uid');
+  var oprid = params.get('oprid');
+  var query = '';
+  if (uid && UID_RE.test(uid)) { query = '?uid=' + encodeURIComponent(uid); }
+  else if (oprid && OPRID_RE.test(oprid)) { query = '?oprid=' + encodeURIComponent(oprid); }
+  // A unique id delivered in ?oprid= rides on as ?uid=, mirroring the server.
+  else if (oprid && UID_RE.test(oprid)) { query = '?uid=' + encodeURIComponent(oprid); }
+  if (!query) { return; }
+  var links = document.querySelectorAll('a[href="https://blueprint.pareconsulting.com/assess"], a[href="/assess"]');
+  Array.prototype.forEach.call(links, function (a) {
+    a.setAttribute('href', a.getAttribute('href') + query);
+  });
+})();
+</script>
 
 <script>/* Ontraport visitor tracking. Runs on EVERY host, deliberately — his 2026-09-17
    call. A hostname gate used to hold this to the live host so hub-demo traffic never
